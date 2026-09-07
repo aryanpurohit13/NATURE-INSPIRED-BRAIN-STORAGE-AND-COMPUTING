@@ -244,3 +244,54 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
 }
+
+/* =========================================================================
+   SLIDESHOW & CINEMA PRESENTATION STYLES
+   ========================================================================= */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.slide-content-enter {
+  animation: slideFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fullscreen Slideshow Laser Pointer */
+.laser-pointer-dot {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: #f43f5e;
+  box-shadow: 0 0 12px 4px #f43f5e, 0 0 24px 8px rgba(244, 63, 94, 0.6);
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+/* Slideshow Progress Bar */
+.slideshow-progress-line {
+  height: 3px;
+  background: linear-gradient(90deg, #06b6d4, #10b981);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.7);
+  transition: width 0.1s linear;
+}
+
+/* Slideshow HUD Auto-Hide */
+.slideshow-hud {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slideshow-hud.hud-idle {
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+}
